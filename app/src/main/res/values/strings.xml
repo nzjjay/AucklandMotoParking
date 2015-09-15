@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Auckland Moto Parking</string>
+    <string name="title_activity_maps">Auckland Moto Parking</string>
+    <string name="title_activity_about">About</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- About Section -->
+    <string name="about">About</string>
+    <string name="author">Developer: Appavate</string>
+    <string name="version">Version 1.1</string>
+    <string name="thanks">If you have feedback, please feel free to contact us.</string>
+    <string name="email">Email: support@appavate.com</string>
+    <string name="emailus">Email Us!</string>
+    <string name="rate">Rate!</string>
+    <string name="liked">Liked the application? Rate it!</string>
+    <string name="blank"></string>
+    <string name="title_activity_add">Add</string>
+
+</resources>
