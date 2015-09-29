@@ -79,36 +79,39 @@ public class MapsActivity extends ActionBarActivity {
 
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
-        if (mMap == null) {
-            // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-                    .getMap();
+        if (mMap != null) {
+            return;
+        }
 
+        // Try to obtain the map from the SupportMapFragment.
+        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
+                .getMap();
 
-            mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-                @Override
-                public View getInfoWindow(Marker arg0) {
-                    return null;
-                }
-                @Override
-                public View getInfoContents(Marker marker) {
-                    View myContentView = getLayoutInflater().inflate(
-                            R.layout.custommarker, null);
-                    TextView tvTitle = ((TextView) myContentView
-                            .findViewById(R.id.title));
-                    tvTitle.setText(marker.getTitle());
-                    TextView tvSnippet = ((TextView) myContentView
-                            .findViewById(R.id.snippet));
-                    tvSnippet.setText(marker.getSnippet());
-                    return myContentView;
-                }
-            });
+        mMap.setMyLocationEnabled(true);
 
-
-            // Check if we were successful in obtaining the map.
-            if (mMap != null) {
-                setUpMap();
+        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+            @Override
+            public View getInfoWindow(Marker arg0) {
+                return null;
             }
+            @Override
+            public View getInfoContents(Marker marker) {
+                View myContentView = getLayoutInflater().inflate(
+                        R.layout.custommarker, null);
+                TextView tvTitle = ((TextView) myContentView
+                        .findViewById(R.id.title));
+                tvTitle.setText(marker.getTitle());
+                TextView tvSnippet = ((TextView) myContentView
+                        .findViewById(R.id.snippet));
+                tvSnippet.setText(marker.getSnippet());
+                return myContentView;
+            }
+        });
+
+
+        // Check if we were successful in obtaining the map.
+        if (mMap != null) {
+            setUpMap();
         }
     }
 
